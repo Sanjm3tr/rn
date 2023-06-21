@@ -13,8 +13,9 @@ export default function App() {
 
       <Text style={{fontWeight: "400", fontSize: 18,}}>Some guy</Text>
 {/* </View> */}
-      <Text style={{marginLeft: 150}}>7 seconds</Text>
-      <Image source={require('./assets/download.jpeg')} style={{width: 60, height: 60, flex: 1, marginBottom: 1, borderRadius: 500}} />
+      <Text style={{marginLeft: 150}}>7 seconds ago</Text>
+      <Image source={require('./assets/download.jpeg')} onPress={() => {
+        Alert.alert("you pressed on profile pic")}} style={{width: 60, height: 60, flex: 1, marginBottom: 1, borderRadius: 500}} />
       <TouchableOpacity activeOpacity={0.1}>
 
       <Entypo name="dots-three-vertical" size={24} color="black" style={{marginLeft:"90%"}} onPress={() => {Alert.alert("Yo wsup")}} />
