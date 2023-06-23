@@ -3,27 +3,35 @@ import { StyleSheet, Text, View, Alert, Button ,  SafeAreaView,
     ScrollView, TouchableOpacity, Pressable} from 'react-native';
 import {Image} from "expo-image"
 import { Entypo } from '@expo/vector-icons';
+import { useState } from 'react';
 // import img from "./assets/download.jpeg"
 
-export default function App() {
+export default function App({text, date}) {
+  const [menu, setMenu] = useState(false)
   return (
     <SafeAreaView style={styles.container}>
       <View style={{width: "100%", height: 168, backgroundColor: "white", flexDirection: "column"}}>
-{/* <View style={{flexDirection: "column",}}> */}
-
       <Text style={{fontWeight: "400", fontSize: 18,}}>Some guy</Text>
-{/* </View> */}
-      <Text style={{marginLeft: 150}}>7 seconds ago</Text>
-      {/* <Pressable onPress={() => {
-        Alert.alert("you pressed on profile pic")}} style={{width: 60, height: 60, flex: 1, marginBottom: 1, borderRadius: 500}}> */}
-      <Image source={require('./assets/download.jpeg')}  />
-      <TouchableOpacity activeOpacity={0.1}>
-      <Entypo name="dots-three-vertical" size={24} color="black" style={{marginLeft:"90%"}} onPress={() => {Alert.alert("Yo wsup")}} />
+      <Text style={{marginLeft: 150}}>hehe</Text>
+      <Image source={require('./assets/download.jpeg')} style={{flex: 2, width: 60, height: 60, borderRadius: 50}} />
+      <View style={{position:'relative', height: 29}}>
+      <TouchableOpacity activeOpacity={0.1} onPress={() => setMenu(!menu)}>
+      <Entypo name="dots-three-vertical" size={24} color="black" style={{marginLeft:"90%"}} />
       </TouchableOpacity>
-      {/* <Button onPress={() => {Alert.alert("Yo wsup")}} title=":" /> */}
-      <Text style={{fontSize:27, marginLeft: 150}}>This is text</Text>
+      <View style={{ display: menu ? 'flex' : 'none', position: 'absolute', width: 100, right: 0, top: 30, borderwidth: 1, backgroundColor:'#ccc', borderRadius:5}}>
+        <View style={{borderwidth:1, borderColor: 'black'}} >
+
+       <Text>
+        Edit
+       </Text>
+        </View>
+       <Text>
+        Delete
+       </Text>
       </View>
-      
+      </View>
+      <Text style={{fontSize:27, marginLeft: 150}}>{text}</Text>
+      </View>
       <StatusBar style="dark" />
     </SafeAreaView>
   );
