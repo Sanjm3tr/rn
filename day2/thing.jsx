@@ -4,11 +4,10 @@ import { StyleSheet, Text, View, Alert, Button ,  SafeAreaView,
 import {Image} from "expo-image"
 import { Entypo } from '@expo/vector-icons';
 import { useState } from 'react';
-// import img from "./assets/download.jpeg"
 
 export default function App({text, date}) {
   const [menu, setMenu] = useState(false)
-  return (
+  return (  
     <SafeAreaView style={styles.container}>
       <View style={{width: "100%", height: 168, backgroundColor: "white", flexDirection: "column"}}>
       <Text style={{fontWeight: "400", fontSize: 18,}}>Some guy</Text>
