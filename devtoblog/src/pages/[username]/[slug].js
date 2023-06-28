@@ -19,8 +19,13 @@ export default function Home() {
   console.log(article);
   return (
     <>
-      <h1>{article.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: article.body_html }} />
+      <Typography sx={{ color: "black", height: "45px" }}>
+        {article.title}
+      </Typography>
+      <Container
+        sx={{ color: "black" }}
+        dangerouslySetInnerHTML={{ __html: article.body_html }}
+      />
     </>
   );
 }

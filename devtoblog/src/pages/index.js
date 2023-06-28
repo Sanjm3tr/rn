@@ -18,24 +18,22 @@ export default function Home() {
   }, []);
   console.log(article);
   return (
-    <>
-      <Container>
-        <Grid container spacing={4} sx={{ flexGrow: 1, mt: 2 }}>
-          {article.map(({ title, cover_image, path }, index) => (
-            <Grid xs={3} key={index}>
-              <Card>
-                <Typography>{title}</Typography>
-                <AspectRatio objectFit="contain">
-                  <img src={cover_image} />
-                </AspectRatio>
-                <Button color="neutral" onClick={() => Router.push(path)}>
-                  Open
-                </Button>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </>
+    <Container sx={{ backgroundColor: "white" }}>
+      <Grid container spacing={4} sx={{ flexGrow: 1, mt: 2 }}>
+        {article.map(({ title, cover_image, path }, index) => (
+          <Grid xs={3} key={index}>
+            <Card sx={{ backgroundColor: "gainsboro" }}>
+              <Typography>{title}</Typography>
+              <AspectRatio objectFit="contain">
+                <img src={cover_image} />
+              </AspectRatio>
+              <Button color="neutral" onClick={() => Router.push(path)}>
+                Open
+              </Button>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 }
