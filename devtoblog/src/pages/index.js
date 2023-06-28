@@ -5,7 +5,7 @@ import { Card, Container, Grid, Typography, Button } from "@mui/joy";
 import Image from "next/image";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Router from "next/router";
-
+import Head from "next/head";
 export default function Home() {
   const [article, setArticle] = useState([]);
   const router = useRouter;
@@ -19,6 +19,9 @@ export default function Home() {
   console.log(article);
   return (
     <Container sx={{ backgroundColor: "white" }}>
+      <Head>
+        <title>Welcome to my blog</title>
+      </Head>
       <Grid container spacing={4} sx={{ flexGrow: 1, mt: 2 }}>
         {article.map(({ title, cover_image, path }, index) => (
           <Grid xs={3} key={index}>
