@@ -6,6 +6,7 @@ import Image from "next/image";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Router from "next/router";
 import Head from "next/head";
+
 export default function Home() {
   const [article, setArticle] = useState([]);
   const router = useRouter;
@@ -16,7 +17,6 @@ export default function Home() {
         setArticle(data);
       });
   }, []);
-  console.log(article);
   return (
     <Container sx={{ backgroundColor: "white" }}>
       <Head>
@@ -26,10 +26,11 @@ export default function Home() {
         {article.map(({ title, cover_image, path }, index) => (
           <Grid xs={3} key={index}>
             <Card sx={{ backgroundColor: "gainsboro" }}>
-              <Typography>{title}</Typography>
+              <Typography>{title.slice(0, 30)}...</Typography>
               <AspectRatio objectFit="contain">
                 <img src={cover_image} />
               </AspectRatio>
+              <Typography>{tags}</Typography>
               <Button color="neutral" onClick={() => Router.push(path)}>
                 Open
               </Button>
